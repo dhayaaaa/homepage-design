@@ -1,8 +1,8 @@
 let slideIndex = 1;
 let currentImageIndex = 0;
 let lastHighlightedColumn = 0;
-  let currentSlide1 = 3;
-  const slidesToShow = 3; 
+let currentSlide1 = 3;
+const slidesToShow = 3;
 const images = [
   "/assets/Rectangle 6683.svg",
   "/assets/Rectangle 6684.svg",
@@ -49,11 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(document.querySelector(".adjust"));
 });
 
-
 //////////////////////////////////////////////////////////////////
 function toggleMenu() {
   const navbar = document.getElementById("navbar");
-  navbar.classList.toggle("active"); 
+  navbar.classList.toggle("active");
 }
 document.addEventListener("DOMContentLoaded", () => {
   const flavorButtons = document.querySelectorAll(".flavor-btn");
@@ -86,14 +85,12 @@ document.getElementById("searchButton").addEventListener("click", function () {
   searchContainer.classList.toggle("hidden");
 });
 
-
 function toggleSidebar() {
   const sidebar = document.getElementById("search-sidebar");
 
   searchSidebarOpen = !searchSidebarOpen;
   sidebar.style.display = searchSidebarOpen ? "block" : "none";
 }
-
 
 window.onclick = function (event) {
   const sidebar = document.getElementById("search-sidebar");
@@ -107,7 +104,7 @@ window.onclick = function (event) {
     sidebar.style.display = "none";
   }
 };
-  
+
 //////////////////////radio/////////////////////////
 
 document.querySelectorAll(".flavor").forEach(function (item) {
@@ -130,32 +127,26 @@ function selectFlavor(flavor) {
   }
 }
 
-
 /////////////////////below radio////////////////////////////
 function toggleContent() {
-  
   document.getElementById("singleContent").style.display = "none";
   document.getElementById("doubleContent").style.display = "none";
   document.getElementById("tryContent").style.display = "none";
 
-  
   if (document.getElementById("single").checked) {
     document.getElementById("singleContent").style.display = "block";
-    
   } else if (document.getElementById("double").checked) {
-   
     document.getElementById("doubleContent").style.display = "block";
-    
   } else if (document.getElementById("try").checked) {
     document.getElementById("tryContent").style.display = "block";
-    
   }
 }
 
-
 toggleContent();
 function selectFlavor1(subscription) {
-  const radio = document.getElementById(`subscription-${subscription.toLowerCase()}`);
+  const radio = document.getElementById(
+    `subscription-${subscription.toLowerCase()}`
+  );
   if (radio) {
     radio.checked = true;
   }
@@ -201,13 +192,11 @@ function selectColumn(columnIndex) {
   const headers = table.getElementsByTagName("th");
   const rows = table.getElementsByTagName("tr");
 
- 
   if (lastHighlightedColumn >= 0) {
     for (let row of rows) {
       row.cells[lastHighlightedColumn + 1].classList.remove("highlight");
     }
   }
-
 
   for (let row of rows) {
     row.cells[columnIndex + 1].classList.add("highlight");
@@ -227,7 +216,7 @@ window.onload = function () {
 function updateImage() {
   const sliderImage = document.getElementById("sliderImage");
   sliderImage.src = images[currentImageIndex];
-   updateDots();
+  updateDots();
 }
 
 function nextImage() {
@@ -239,8 +228,6 @@ function prevImage() {
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   updateImage();
 }
-
-
 
 function currentSlide(index) {
   currentImageIndex = index;
@@ -254,7 +241,6 @@ function updateDots() {
   });
 }
 
-
 updateImage();
 // container9///////////////////////////////////
 function toggleAnswer(questionElement) {
@@ -265,34 +251,29 @@ function toggleAnswer(questionElement) {
     answerElement.style.display === ""
   ) {
     answerElement.style.display = "block";
-    questionElement.querySelector(".icon").textContent = "−"; 
+    questionElement.querySelector(".icon").textContent = "−";
   } else {
     answerElement.style.display = "none";
-    questionElement.querySelector(".icon").textContent = "+"; 
+    questionElement.querySelector(".icon").textContent = "+";
   }
 }
 
 ///////////////////////////Review///////////////////////////////////////////////////
 
-
 function showSlide(index) {
   const slides = document.querySelectorAll(".slide");
   const dots1 = document.querySelectorAll(".dot1");
 
- 
   currentSlide1 = (index + slides.length) % slides.length;
-
 
   slides.forEach((slide) => slide.classList.remove("active"));
   dots1.forEach((dot1) => dot1.classList.remove("active"));
-
 
   for (let i = 0; i < slidesToShow; i++) {
     if (slides[currentSlide1 + i]) {
       slides[currentSlide1 + i].classList.add("active");
     }
   }
-
 
   const activeDotIndex = Math.floor(currentSlide1 / slidesToShow);
   if (dots1[activeDotIndex]) {
