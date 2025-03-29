@@ -6,11 +6,11 @@ let lastHighlightedColumn = 0;
 const images = [
   "/assets/Rectangle 6683.svg",
   "/assets/Rectangle 6684.svg",
-  "/assets/Group 1000004277.png",
+  "/assets/Rectangle 6683.svg",
   "/assets/Group 1000003951.svg",
-  "/assets/green1_1 1.svg",
+  "/assets/green1_1 1 (2)-cropped.svg",
   "/assets/green2_1 1.svg",
-  "/assets/green2_1 2.svg",
+  "/assets/green2_1 2 (1).svg",
   "/assets/green2_1 3.svg",
 ];
 function myFunction(x) {
